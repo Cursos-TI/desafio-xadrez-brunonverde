@@ -24,7 +24,7 @@ int main() {
 
     printf("Movimento do Bispo:\n");
 
-    while (contadorBispo <= CASAS_BISPO) {
+    while (contadorBispo <= BISPO) {
         printf("Cima Direita\n");
         contadorBispo++;
     }
@@ -39,7 +39,7 @@ int main() {
     // ================================
     printf("Movimento da Torre:\n");
 
-    for (int i = 1; i <= CASAS_TORRE; i++) {
+    for (int i = 1; i <= TORRE; i++) {
         printf("Direita\n");
     }
 
@@ -58,7 +58,7 @@ int main() {
     do {
         printf("Esquerda\n");
         contadorRainha++;
-    } while (contadorRainha <= CASAS_RAINHA);
+    } while (contadorRainha <= RAINHA);
 
 
     return 0;
