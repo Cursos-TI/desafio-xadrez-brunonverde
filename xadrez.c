@@ -60,6 +60,28 @@ int main() {
         contadorRainha++;
     } while (contadorRainha <= RAINHA);
 
+    // ================================
+    // Nível Intermediário - Movimentação do Cavalo
+    // Movimento em "L": 2 Baixo e 1 Esquerda
+    // Uso de loops aninhados
+    // ================================
+
+    const int BAIXO = 2;
+    const int ESQUERDA = 1;
+
+    printf("Movimento do Cavalo:\n");
+
+    // Loop externo (for) - movimento vertical (Baixo)
+    for (int i = 1; i <= BAIXO; i++) {
+        printf("Baixo\n");
+    }
+
+    // Loop interno (while) - movimento horizontal (Esquerda)
+    int contadorCavalo = 1;
+    while (contadorCavalo <= ESQUERDA) {
+        printf("Esquerda\n");
+        contadorCavalo++;
+    }
 
     return 0;
 }
