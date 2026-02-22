@@ -1,88 +1,116 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// ================================
+// FUNÇÕES RECURSIVAS
+// ================================
 
+// -------------------------------
+// Torre - movimento para a direita
+// -------------------------------
+void moverTorre(int casas) {
+    if (casas == 0) {
+        return; // condição de parada da recursão
+    }
+
+    printf("Direita\n");
+    moverTorre(casas - 1);
+}
+
+// -------------------------------
+// Rainha - movimento para a esquerda
+// -------------------------------
+void moverRainha(int casas) {
+    if (casas == 0) {
+        return;
+    }
+
+    printf("Esquerda\n");
+    moverRainha(casas - 1);
+}
+
+// -------------------------------
+// Bispo - movimento diagonal (Cima + Direita)
+// Recursividade + loops aninhados
+// -------------------------------
+void moverBispo(int casas) {
+    if (casas == 0) {
+        return;
+    }
+
+    // Loop externo: movimento vertical
+    for (int v = 1; v <= 1; v++) {
+
+        // Loop interno: movimento horizontal
+        for (int h = 1; h <= 1; h++) {
+            printf("Cima Direita\n");
+        }
+    }
+
+    moverBispo(casas - 1);
+}
+
+// ================================
+// FUNÇÃO PRINCIPAL
+// ================================
 int main() {
 
     // ================================
-    // Nível Novato - Movimentação das Peças
+    // Constantes de movimento
     // ================================
-
-    // Declaração das constantes de movimento
-    const int BISPO = 5;
     const int TORRE = 5;
+    const int BISPO = 5;
     const int RAINHA = 8;
 
     // ================================
-    // Implementação de Movimentação do Bispo
-    // Movimento diagonal: Cima + Direita
-    // Estrutura utilizada: while
-    // ================================
-    int contadorBispo = 1;
-
-    printf("Movimento do Bispo:\n");
-
-    while (contadorBispo <= BISPO) {
-        printf("Cima Direita\n");
-        contadorBispo++;
-    }
-
-    printf("\n");
-
-
-    // ================================
-    // Implementação de Movimentação da Torre
-    // Movimento horizontal: Direita
-    // Estrutura utilizada: for
+    // Torre (Recursiva)
     // ================================
     printf("Movimento da Torre:\n");
-
-    for (int i = 1; i <= TORRE; i++) {
-        printf("Direita\n");
-    }
+    moverTorre(TORRE);
 
     printf("\n");
 
+    // ================================
+    // Bispo (Recursivo + loops aninhados)
+    // ================================
+    printf("Movimento do Bispo:\n");
+    moverBispo(BISPO);
+
+    printf("\n");
 
     // ================================
-    // Implementação de Movimentação da Rainha
-    // Movimento horizontal: Esquerda
-    // Estrutura utilizada: do-while
+    // Rainha (Recursiva)
     // ================================
-    int contadorRainha = 1;
-
     printf("Movimento da Rainha:\n");
+    moverRainha(RAINHA);
 
-    do {
-        printf("Esquerda\n");
-        contadorRainha++;
-    } while (contadorRainha <= RAINHA);
+    printf("\n");
 
     // ================================
-    // Nível Intermediário - Movimentação do Cavalo
-    // Movimento em "L": 2 Baixo e 1 Esquerda
-    // Uso de loops aninhados
+    // Cavalo - loops complexos
+    // Movimento em "L": 2 Cima e 1 Direita
     // ================================
-
-    const int BAIXO = 2;
-    const int ESQUERDA = 1;
-
     printf("Movimento do Cavalo:\n");
 
-    // Loop externo (for) - movimento vertical (Baixo)
-    for (int i = 1; i <= BAIXO; i++) {
-        printf("Baixo\n");
+    int movimentoVertical = 2;
+    int movimentoHorizontal = 1;
+
+    for (int i = 1; i <= movimentoVertical; i++) {
+
+        if (i > 2) {
+            break; // segurança, não deixa ultrapassar
+        }
+
+        printf("Cima\n");
     }
 
-    // Loop interno (while) - movimento horizontal (Esquerda)
-    int contadorCavalo = 1;
-    while (contadorCavalo <= ESQUERDA) {
-        printf("Esquerda\n");
-        contadorCavalo++;
+    for (int j = 1; j <= movimentoHorizontal; j++) {
+
+        if (j == 0) {
+            continue; // exemplo de uso do continue
+        }
+
+        printf("Direita\n");
     }
 
     return 0;
 }
-
